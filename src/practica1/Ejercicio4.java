@@ -1,11 +1,15 @@
 package practica1;
 
 /**
- * Created by agustin on 14/3/17.
+ * @author Agustin Bettati
+ * @author Marcos Khabie
+ * @version 1.0
+ *
+ * Practica numero 1.
  */
 public class Ejercicio4 <T extends Comparable<T>>{
 
-    public boolean capicua(T[] array){
+    public boolean iterativeCapicua(T[] array){
         int n = array.length;
 
         for (int i = 0, j = n-1; i< j; i++, j--){
@@ -14,5 +18,20 @@ public class Ejercicio4 <T extends Comparable<T>>{
             }
         }
         return true;
+    }
+
+    public boolean recursiveCapicua(T[] array){
+        return recursiveCapicua(array, 0, array.length - 1);
+    }
+
+    private boolean recursiveCapicua(T[] array, int leftIndex, int rightIndex){
+        if(leftIndex >= rightIndex){
+            return true;
+        }
+
+        if(array[leftIndex] != array[rightIndex]){
+            return false;
+        }
+        return recursiveCapicua(array, leftIndex + 1, rightIndex -1);
     }
 }

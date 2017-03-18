@@ -1,14 +1,13 @@
 package practica1;
 
 /**
- * Created by agustin on 14/3/17.
+ * @author Agustin Bettati
+ * @author Marcos Khabie
+ * @version 1.0
+ *
+ * Practica numero 1.
  */
 public class Ejercicio3 {
-
-    public static void main(String[] args) {
-        System.out.println(iterativeAmountOfCeros(12020));
-        System.out.println(recursiveAmountOfCeros(12020));
-    }
 
     public static int iterativeAmountOfCeros(int num){
         int amount = 0;
