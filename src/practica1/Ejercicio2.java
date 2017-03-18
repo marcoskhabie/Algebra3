@@ -8,30 +8,48 @@ public class Ejercicio2 {
 
 
 
-    public static int factorial(int n) {
+    public static int recursiveFactorial(int n) {
         if (n < 2) {
             return 1;
         } else {
-            return factorial(n - 1) * n;
+            return recursiveFactorial(n - 1) * n;
 
         }
     }
+    public static int iterativeFactorial(int n){
 
-    public static double sucesionN(int n) {
-        double exponente = 0;
+        int result=1 ;
+
+        if(n<2) {
+
+            return 1;
+        }
+
+        for(int i=2; i<=n; i++){
+            result=result*i;
+
+        }
+        return result;
+    }
+
+
+    public static double exponential(int n) {
+        double exponent = 0;
         double result = 1;
-        if (exponente <= n) {
-            result = result + Math.pow(2, exponente + 1);
-            exponente++;
+        if (exponent <= n) {
+            result = result + Math.pow(2, exponent + 1);
+            exponent++;
         } else {
             return result;
         }
-        return sucesionN(n);
+        return exponential(n);
     }
 
 
 
-    public static int fibbonacci(int n) {
+
+
+    public static int reciursiveFibbonacci(int n) {
         if (n == 0) {
             return 0;
         }
@@ -42,11 +60,27 @@ public class Ejercicio2 {
         }
 
 
-        return fibbonacci(n - 1) + fibbonacci(n - 2);
+        return reciursiveFibbonacci(n - 1) + reciursiveFibbonacci(n - 2);
 
     }
+
+    static int iterativefibonacci(int n) {
+        int x = 0, y = 1, z = 1;
+        for (int i = 0; i < n; i++) {
+            x = y;
+            y = z;
+            z = x + y;
+        }
+        return x;
+    }
+
+
 
     public static double mcd(double a, double b){
+
+
 return 1;
     }
+
+
 }
