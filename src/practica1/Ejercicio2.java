@@ -1,12 +1,13 @@
 package practica1;
 
 /**
- * Created by marcos on 14/3/17.
+ * @author Agustin Bettati
+ * @author Marcos Khabie
+ * @version 1.0
+ *
+ * Practica numero 1.
  */
-//brian.re....
 public class Ejercicio2 {
-
-
 
     public static int recursiveFactorial(int n) {
         if (n < 2) {
@@ -16,6 +17,7 @@ public class Ejercicio2 {
 
         }
     }
+
     public static int iterativeFactorial(int n){
 
         int result=1 ;
@@ -32,39 +34,36 @@ public class Ejercicio2 {
         return result;
     }
 
-
-    public static double exponential(int n) {
-        double exponent = 0;
-        double result = 1;
-        if (exponent <= n) {
-            result = result + Math.pow(2, exponent + 1);
-            exponent++;
-        } else {
-            return result;
+    public static double iterativeTwoToThePowerOf(int n) {
+        int result = 1;
+        for(int i = 0; i < n; i++){
+            result = result*2;
         }
-        return exponential(n);
+        return result;
     }
 
+    public static int recursiveTwoToThePowerOf(int n){
+        return recursiveTwoToThePowerOf(n, 1, 0);
+    }
 
+    private static int recursiveTwoToThePowerOf(int n,int partialResult, int index){
+        if((index+1) > n){
+            return partialResult;
+        }
+        return recursiveTwoToThePowerOf(n, partialResult*2, index + 1);
+    }
 
-
-
-    public static int reciursiveFibbonacci(int n) {
+    public static int recursiveFibbonacci(int n) {
         if (n == 0) {
             return 0;
         }
-
-
         if (n == 1) {
             return 1;
         }
-
-
-        return reciursiveFibbonacci(n - 1) + reciursiveFibbonacci(n - 2);
-
+        return recursiveFibbonacci(n - 1) + recursiveFibbonacci(n - 2);
     }
 
-    static int iterativefibonacci(int n) {
+    static int iterativeFibonacci(int n) {
         int x = 0, y = 1, z = 1;
         for (int i = 0; i < n; i++) {
             x = y;
@@ -74,13 +73,21 @@ public class Ejercicio2 {
         return x;
     }
 
-
-
-    public static double mcd(double a, double b){
-
-
-return 1;
+    static int recursiveMCD(int a, int b) {
+        if(b==0)
+            return a;
+        else
+            return recursiveMCD(b, a % b);
     }
 
-
+    static int iterativeMCD(int a, int b){
+        while(a != b){
+            if(a > b){
+                a = a - b;
+            }else{
+                b = b - a;
+            }
+        }
+        return a;
+    }
 }

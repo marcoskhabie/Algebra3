@@ -1,11 +1,21 @@
 package practica1;
 
 /**
- * Created by agustin on 13/3/17.
+ * @author Agustin Bettati
+ * @author Marcos Khabie
+ * @version 1.0
+ *
+ * Practica numero 1.
  */
 public class Ejercicio1 {
 
-    public static int summationA(int n){
+    public static void main(String[] args) {
+        System.out.println(iterativeSummationF(4));
+        System.out.println(recursiveSummationF(4));
+
+    }
+
+    public static int iterativeSummationA(int n){
         int result = 0;
         for(int i = 1; i < n+1; i++){
             result += i;
@@ -13,24 +23,67 @@ public class Ejercicio1 {
         return result;
     }
 
-    public static double summationB(int n){
+    public static int recursiveSummationA(int n){
+        return recursiveSummationA(n, 0, 1);
+    }
+
+    private static int recursiveSummationA(int n,int partialResult, int index){
+        if(index > n){
+            return partialResult;
+        }
+        return recursiveSummationA(n,partialResult + index, index + 1);
+    }
+
+
+    public static double iterativeSummationB(int n){
         double result = 0;
         for (int i = 1; i < n+1; i++){
-            result += Math.pow(i, 2);
+            result += i*i;
         }
 
         return result;
     }
 
-    public static double summationC(int p, int n){
+    public static int recursiveSummationB(int n){
+        return recursiveSummationB(n, 0, 1);
+    }
+
+    private static int recursiveSummationB(int n,int partialResult, int index){
+        if(index > n){
+            return partialResult;
+        }
+        return recursiveSummationB(n,partialResult + (index*index), index + 1);
+    }
+
+    public static double iterativeSummationC(int p, int n){
         double result = 0;
         for (int i = 0; i < n+1; i++){
-            result += Math.pow(p, i);
+            int addition = 1;
+            for(int j =0; j < i;j++){
+                addition = addition*p;
+            }
+            result += addition;
         }
         return result;
     }
 
-    public static double summationD(int n){
+    public static int recursiveSummationC(int p,int n){
+        return recursiveSummationC(p,n, 0, 0);
+    }
+
+    private static int recursiveSummationC(int p,int n,int partialResult, int index){
+        if(index > n){
+            return partialResult;
+        }
+        int addition = 1;
+        for(int j =0; j < index;j++){
+            addition = addition*p;
+        }
+        int newResult = partialResult + addition;
+        return recursiveSummationC(p,n, newResult, index + 1);
+    }
+
+    public static double iterativeSummationD(int n){
         double result = 0;
         for (int i = 1; i < n+1; i++){
             result += (2 * i) -1;
@@ -38,7 +91,22 @@ public class Ejercicio1 {
         return result;
     }
 
-    public static double summationE(int n){
+
+    public static int recursiveSummationD(int n){
+        return recursiveSummationD(n, 0, 1);
+    }
+
+    private static int recursiveSummationD(int n,int partialResult, int index){
+        if(index >= n+1){
+            return partialResult;
+        }
+        int addition = (2*index) -1;
+
+        int newResult = partialResult + addition;
+        return recursiveSummationD(n, newResult, index + 1);
+    }
+
+    public static double iterativeSummationE(int n){
         double result = 0;
         for (int i = 1; i < n+1; i++){
             result += (1+ i)* i;
@@ -46,12 +114,37 @@ public class Ejercicio1 {
         return result;
     }
 
-    public static double summationF(int n){
+    public static int recursiveSummationE(int n){
+        return recursiveSummationE(n, 0, 1);
+    }
+
+    private static int recursiveSummationE(int n,int partialResult, int index){
+        if(index >= n+1){
+            return partialResult;
+        }
+        int addition = (1+ index)* index;
+
+        int newResult = partialResult + addition;
+        return recursiveSummationE(n, newResult, index + 1);
+    }
+
+    public static double iterativeSummationF(int n){
         double result = 0;
         for (int i = 1; i < n+1; i++){
-            result += Math.pow(i,3);
+            result += (i*i*i);
         }
         return result;
+    }
+
+    public static int recursiveSummationF(int n){
+        return recursiveSummationF(n, 0, 1);
+    }
+
+    private static int recursiveSummationF(int n,int partialResult, int index){
+        if(index > n){
+            return partialResult;
+        }
+        return recursiveSummationF(n,partialResult + (index*index*index), index + 1);
     }
 
 }
