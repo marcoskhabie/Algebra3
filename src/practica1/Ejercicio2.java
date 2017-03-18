@@ -1,4 +1,4 @@
-package Practica1;
+package practica1;
 
 /**
  * Created by marcos on 14/3/17.
