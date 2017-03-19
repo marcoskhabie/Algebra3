@@ -11,16 +11,16 @@ import java.util.List;
  * Practica numero 1.
  */
 public class Ejercicio6 {
-    /**
-     * Verifies if a positive Integer Number is a Prime Number.
-     * Given an integer it looks for the nearest (higher or equal) prime number.
-     * Given an integer it verifies the amount of prime factors it has.
-     * Given an integer it verifies which are its prime factors.
-     */
+
     public static void main(String[] args) {
         System.out.println(primeFactors(33));
     }
 
+    /**
+     * Verifies if a positive Integer Number is a Prime Number.
+     * @param number
+     * @return
+     */
     public boolean iterativeIntegerIsPrimeNumber(int number){
         for(int i = 2; i <= Math.sqrt(number); i++){
             if(number % i == 0){
@@ -46,6 +46,12 @@ public class Ejercicio6 {
         return recursiveIntegerIsPrimeNumber(number, index +1);
     }
 
+    /**
+     * Given an integer it looks for the nearest (higher or equal) prime number.
+     * @param n
+     * @return
+     */
+
     public int iterativeClosestBiggerOrEqualPrimeNumber(int n){
         int i = n;
         while(true){
@@ -64,6 +70,11 @@ public class Ejercicio6 {
         return recursiveClosestBiggerOrEqualPrimeNumber(n + 1);
     }
 
+    /**
+     * Given an integer it verifies which are its prime factors.
+     * @param number
+     * @return
+     */
     public static List<Integer> primeFactors(int number) {
         int n = number;
         List<Integer> factors = new ArrayList<Integer>();
@@ -76,6 +87,11 @@ public class Ejercicio6 {
         return factors;
     }
 
+    /**
+     * Given an integer it verifies the amount of prime factors it has.
+     * @param number
+     * @return
+     */
     public static int amountOfPrimeFactors(int number) {
         int n = number;
         int result = 0;

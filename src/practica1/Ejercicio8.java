@@ -10,8 +10,7 @@ package practica1;
 
 public class Ejercicio8 {
     /**
-     * It implements the Horner rule, and compares the amount of operations for eavaluating
-     * Polynomials between the normal way and using the Horner rule.
+     * Compares the amount of operations for evaluating polynomials between the normal way and using the Horner rule.
      */
 
     public static void main(String[] args) {
@@ -27,7 +26,12 @@ public class Ejercicio8 {
         System.out.println(amountOfOperationsForHornerRule(aPolynomial, 4));
     }
 
-
+    /**
+     * Evaluates a polynomial in a normal way.
+     * @param polynomial
+     * @param valorDeX
+     * @return
+     */
     public static double evaluatesPolynomialInANormalWay(Polynomial polynomial, double valorDeX){
         double result = 0;
         for(int i = 0; i < polynomial.getGrade() + 1; i++){
@@ -36,6 +40,12 @@ public class Ejercicio8 {
         return result;
     }
 
+    /**
+     *  Implements the Horner Rule.
+     * @param polynomial
+     * @param valorDeX
+     * @return
+     */
     public static double iterativeHornerRule(Polynomial polynomial, double valorDeX){
         double result = 0.0;
         for(int i = polynomial.getGrade(); i >= 0; i--) {
@@ -55,6 +65,12 @@ public class Ejercicio8 {
         return recursiveHornerRule(polynomial, valorDeX, partialResult, index - 1);
     }
 
+    /**
+     *  Count the amount of operations using the normal way of evaluating a polynomial.
+     * @param polynomial
+     * @param valorDeX
+     * @return
+     */
     public static double amountOfOperationsForNormalWay(Polynomial polynomial, double valorDeX){
         double result = 0;
         int amountOfOperations = 0;
@@ -65,6 +81,12 @@ public class Ejercicio8 {
         return amountOfOperations;
     }
 
+    /**
+     * Count the amount of operations using the Horner rule for evaluating a polynomial.
+     * @param polynomial
+     * @param valorDeX
+     * @return
+     */
     public static double amountOfOperationsForHornerRule(Polynomial polynomial, double valorDeX){
         double result = 0.0;
         int amountOfOperations = 0;
