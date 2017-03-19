@@ -15,6 +15,11 @@ public class Ejercicio1 {
 
     }
 
+    /**
+     * represents the summation of i from 0 to n
+     * @param n number where the summation will end
+     * @return
+     */
     public static int iterativeSummationA(int n){
         int result = 0;
         for(int i = 1; i < n+1; i++){
@@ -34,7 +39,11 @@ public class Ejercicio1 {
         return recursiveSummationA(n,partialResult + index, index + 1);
     }
 
-
+    /**
+     * represents the summation of i^2 from 1 to n
+     * @param n number where the summation will end
+     * @return
+     */
     public static double iterativeSummationB(int n){
         double result = 0;
         for (int i = 1; i < n+1; i++){
@@ -55,6 +64,13 @@ public class Ejercicio1 {
         return recursiveSummationB(n,partialResult + (index*index), index + 1);
     }
 
+
+    /**
+     * represents the summation of p^i from 0 to n
+     * @param p a constant number
+     * @param n number where the summation will end
+     * @return
+     */
     public static double iterativeSummationC(int p, int n){
         double result = 0;
         for (int i = 0; i < n+1; i++){
@@ -83,6 +99,11 @@ public class Ejercicio1 {
         return recursiveSummationC(p,n, newResult, index + 1);
     }
 
+    /**
+     * represents the summation of (2 * i) - 1 from 1 to n
+     * @param n number where the summation will end
+     * @return
+     */
     public static double iterativeSummationD(int n){
         double result = 0;
         for (int i = 1; i < n+1; i++){
@@ -106,6 +127,11 @@ public class Ejercicio1 {
         return recursiveSummationD(n, newResult, index + 1);
     }
 
+    /**
+     * represents the summation of i * (i + 1) from 1 to n
+     * @param n number where the summation will end
+     * @return
+     */
     public static double iterativeSummationE(int n){
         double result = 0;
         for (int i = 1; i < n+1; i++){
@@ -128,6 +154,11 @@ public class Ejercicio1 {
         return recursiveSummationE(n, newResult, index + 1);
     }
 
+    /**
+     * represents the summation of i^3 from 1 to n
+     * @param n number where the summation will end
+     * @return
+     */
     public static double iterativeSummationF(int n){
         double result = 0;
         for (int i = 1; i < n+1; i++){

@@ -9,6 +9,11 @@ package practica1;
  */
 public class Ejercicio3 {
 
+    /**
+     * Given a integer, the operation returns the amount of 0 in the number
+     * @param num
+     * @return
+     */
     public static int iterativeAmountOfCeros(int num){
         int amount = 0;
 

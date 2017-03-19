@@ -11,6 +11,12 @@ import java.util.NoSuchElementException;
  */
 public class Ejercicio5 {
 
+    /**
+     * Verifies if a number is contained in the array of integers
+     * @param array
+     * @param number
+     * @return
+     */
     public static int recursiveBinarySearch(int[] array, int number){
         return recursiveBinarySearch(array, number, 0, array.length - 1);
     }

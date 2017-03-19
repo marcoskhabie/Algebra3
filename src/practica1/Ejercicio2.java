@@ -9,6 +9,11 @@ package practica1;
  */
 public class Ejercicio2 {
 
+    /**
+     * Does the operation factorial to a specific number
+     * @param n
+     * @return
+     */
     public static int recursiveFactorial(int n) {
         if (n < 2) {
             return 1;
@@ -34,6 +39,11 @@ public class Ejercicio2 {
         return result;
     }
 
+    /**
+     * does the operation 2^n
+     * @param n
+     * @return
+     */
     public static double iterativeTwoToThePowerOf(int n) {
         int result = 1;
         for(int i = 0; i < n; i++){
@@ -53,6 +63,11 @@ public class Ejercicio2 {
         return recursiveTwoToThePowerOf(n, partialResult*2, index + 1);
     }
 
+    /**
+     * Gives the n term of the succession fibonacci
+     * @param n
+     * @return
+     */
     public static int recursiveFibbonacci(int n) {
         if (n == 0) {
             return 0;
@@ -73,6 +88,12 @@ public class Ejercicio2 {
         return x;
     }
 
+    /**
+     * returns the greatest common divisor using the Euclidean algorithm
+     * @param a
+     * @param b
+     * @return
+     */
     static int recursiveMCD(int a, int b) {
         if(b==0)
             return a;

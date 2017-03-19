@@ -9,6 +9,11 @@ package practica1;
  */
 public class Ejercicio4 <T extends Comparable<T>>{
 
+    /**
+     * verifies if an array complies with array[0] == array[n], array[1] == array[n-1], etc.
+     * @param array
+     * @return
+     */
     public boolean iterativeCapicua(T[] array){
         int n = array.length;
 
