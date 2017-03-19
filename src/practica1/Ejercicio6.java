@@ -11,7 +11,12 @@ import java.util.List;
  * Practica numero 1.
  */
 public class Ejercicio6 {
-
+    /**
+     * Verifies if a positive Integer Number is a Prime Number.
+     * Given an integer it looks for the nearest (higher or equal) prime number.
+     * Given an integer it verifies the amount of prime factors it has.
+     * Given an integer it verifies which are its prime factors.
+     */
     public static void main(String[] args) {
         System.out.println(primeFactors(33));
     }

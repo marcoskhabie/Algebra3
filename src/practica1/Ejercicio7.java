@@ -9,6 +9,9 @@ package practica1;
  */
 
 public class Ejercicio7 {
+    /**
+     * It implements the Euclides Algorithm and calculates the MCD of the pair of numbers: "123 and 277", "111 and 201" , and "14039 and 1529".
+     */
     public static void main(String[] args) {
         System.out.println("MCD de 123 y 277 es: " + recursiveMCD(123, 277));
         System.out.println("MCD de 111 y 201 es: " + recursiveMCD(111, 201));
