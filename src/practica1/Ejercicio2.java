@@ -77,16 +77,14 @@ public class Ejercicio2 {
         if(b==0)
             return a;
         else
-            return recursiveMCD(b, a % b);
-    }
+                return recursiveMCD(b, a % b);
+}
 
     static int iterativeMCD(int a, int b){
-        while(a != b){
-            if(a > b){
-                a = a - b;
-            }else{
-                b = b - a;
-            }
+        while(b != 0){
+            int t = b;
+            b = a % b;
+            a = t;
         }
         return a;
     }
