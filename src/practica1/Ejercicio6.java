@@ -13,7 +13,10 @@ import java.util.List;
 public class Ejercicio6 {
 
     public static void main(String[] args) {
-        System.out.println(primeFactors(33));
+
+        System.out.println(primeFactors(50));
+
+        System.out.println(recursiveAmtOfPrimeFactors(50));
     }
 
     /**
@@ -87,6 +90,31 @@ public class Ejercicio6 {
         return factors;
     }
 
+
+    /**
+     * Given an integer it verifies which are its prime factors.
+     * @param number
+     * @return
+     */
+    public static List<Integer> recursivePrimeFactors(int number){
+        List<Integer> primeFactor = new ArrayList<>();
+        recursivePrimeFactors(number, number -1, primeFactor);
+        return primeFactor;
+
+    }
+
+    private static void recursivePrimeFactors(int number, int counter, List<Integer> factors){
+        int n = number;
+        if(counter < 2){
+            return;
+        }
+        while (n % counter == 0) {
+            factors.add(counter);
+            n /= counter;
+        }
+        recursivePrimeFactors(number, counter - 1, factors);
+    }
+
     /**
      * Given an integer it verifies the amount of prime factors it has.
      * @param number
@@ -102,6 +130,29 @@ public class Ejercicio6 {
             }
         }
         return result;
+    }
+
+    /**
+     * Given an integer it verifies the amount of prime factors it has.
+     * @param number
+     * @return
+     */
+    public static int recursiveAmtOfPrimeFactors(int number) {
+        return recursiveAmtOfPrimeFactors(number, 2);
+    }
+
+    private static int recursiveAmtOfPrimeFactors(int number, int counter){
+        int n = number;
+        int result = 0;
+        if(counter > n){
+            return 0;
+        }
+        while (n % counter == 0) {
+            result++;
+            n /= counter;
+        }
+
+        return result + recursiveAmtOfPrimeFactors(n, counter +1);
     }
 
 
