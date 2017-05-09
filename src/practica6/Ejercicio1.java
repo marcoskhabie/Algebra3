@@ -12,6 +12,8 @@ public class Ejercicio1 {
         int[][] matrix2 = {{2,3},{5,4},{8,2}};
 
         printMatrix(productoOfMatrix(matrix1, matrix2));
+        System.out.println();
+        printMatrix(transversalMatrix(matrix1));
     }
 
     private static void printMatrix(int[][] matrix){
@@ -97,6 +99,17 @@ public class Ejercicio1 {
             }
         }
         return result;
+    }
+
+    public static int[][] transversalMatrix(int[][] matrix){
+        int[][] transversal = new int[matrix[0].length][matrix.length];
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                transversal[j][i] = matrix[i][j];
+            }
+        }
+        return transversal;
     }
 
 
