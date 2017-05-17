@@ -7,42 +7,54 @@ package practica6;
  */
 public class Ex4Solved implements Exercise4{
 
-    private class NodeImpl implements Node<Double>{
-        private int row;
-        private int col;
-        private double value;
-
-        public NodeImpl(int row, int col, double value) {
-            this.row = row;
-            this.col = col;
-            this.value = value;
-        }
-
-        @Override
-        public int getRow() {
-            return row;
-        }
-
-        @Override
-        public int getColumn() {
-            return col;
-        }
-
-        @Override
-        public Double getValue() {
-            return value;
-        }
+    public static void main(String[] args) {
+        Ex4Solved test = new Ex4Solved();
+        double[] triangularMatrixA = {2,5,6,7,8,7};
+        double[] triangularMatrixB = {2,5,6,7,8,7};
+        printMatrix(test.summation(triangularMatrixA, triangularMatrixB, new Calc()));
     }
 
     @Override
-    public Node[] summation(Node[] matrixA, Node[] matrixB, Calculator calculator) {
-        Node[] resultMatrix = new Node[matrixA.length];
-
-        for (int i = 0; i < resultMatrix.length; i++) {
-            resultMatrix[i] = new NodeImpl(matrixA[i].getRow(), matrixA[i].getColumn(),
-                    calculator.sum((int)matrixA[i].getValue(), (int)matrixB[i].getValue()));
+    public double[][] summation(double[] matrixA, double[] matrixB, Calculator calculator) {
+        int dimension = getDimensionOfTriangularMatrix(matrixA);
+        double[][] result = new double[dimension][dimension];
+        int k = 0;
+        for (int i = 0; i < dimension; i++) {
+            for (int j = 0; j < dimension; j++) {
+                if(i > j){
+                    result[i][j] = 0;
+                }
+                else{
+                    result[i][j] = calculator.sum(matrixA[k], matrixB[k]);
+                    k++;
+                }
+            }
         }
+        return result;
+    }
 
-        return resultMatrix;
+    public static void printMatrix(double[][] matrix){
+        for (int i = 0; i < matrix.length; i++) {
+            String row = "";
+            for (int j = 0; j < matrix[0].length; j++) {
+                row += matrix[i][j] + " ";
+            }
+            System.out.println(row);
+        }
+    }
+
+    private int getDimensionOfTriangularMatrix(double[] matrix){
+        int n = 0;
+        int j = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            if(n == j){
+                j = 0;
+                n++;
+            }
+            else{
+                j++;
+            }
+        }
+        return n;
     }
 }
