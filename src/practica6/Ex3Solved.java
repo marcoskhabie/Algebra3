@@ -46,7 +46,7 @@ public class Ex3Solved  implements Exercise3{
                     while (matrixA[k][i]==0){
                         k++;
                     }
-                    result[j][i]= calculator.sum(result[i][j],calculator.multiplication(matrixA[k][i],matrixB[j][k]));
+                    result[j][i]= calculator.sum(result[j][i],calculator.multiplication(matrixA[k][i],matrixB[j][k]));
                 }
             }
             i++;
