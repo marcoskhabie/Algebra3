@@ -43,7 +43,10 @@ public class Ex3Solved  implements Exercise3{
         while (i<matrixA.length){
             for (int j = i; j <matrixA.length ; j++) {
                 for (int k = 0; k+j < matrixA.length&& matrixB[i][k]!=0 ; k++) {
-                    result[i][j]= calculator.sum(result[i][j],calculator.multiplication(matrixA[j+k][i],matrixB[j][k]));
+                    while (matrixA[k][i]==0){
+                        k++;
+                    }
+                    result[j][i]= calculator.sum(result[i][j],calculator.multiplication(matrixA[k][i],matrixB[j][k]));
                 }
             }
             i++;
