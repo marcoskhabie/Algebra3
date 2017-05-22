@@ -10,6 +10,19 @@ import practica6.Exercise3;
  */
 public class Ex3Solved  implements Exercise3{
 
+    public static void main(String[] args) {
+        double[][] matrixA = {  {1,0,0},
+                                {2,3,0},
+                                {4,4,4}};
+
+        double[][] matrixB = {  {1,5,6},
+                                {0,3,1},
+                                {0,0,5}};
+
+        Ex3Solved solver = new Ex3Solved();
+        Calc.printMatrix(solver.exerciseE(matrixA,matrixB,new Calc()));
+    }
+
     @Override
     public double[] exerciseAI(double[][] matrixA, double[] vectorX, Calculator calculator) {
         int i= 0;
@@ -101,6 +114,29 @@ public class Ex3Solved  implements Exercise3{
 
     @Override
     public double[][] exerciseE(double[][] matrixA, double[][] matrixB, Calculator calculator) {
-        return new double[0][];
+        if(matrixA[0].length != matrixB.length){
+            throw new RuntimeException("Dimension error in product of matrix");
+        }
+
+        double[][] result = new double[matrixA.length][matrixB[0].length];
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[i].length; j++) {
+                double value = 0;
+                int k;
+                if(i < j){
+                    k = i;
+                }
+                else {
+                    k = j;
+                }
+                for (;k >= 0; k--) {
+                    value = calculator.sum(value,
+                            calculator.multiplication(matrixA[i][k], matrixB[k][j]));
+                }
+                result[i][j] = value;
+            }
+        }
+        return result;
     }
+
 }

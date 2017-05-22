@@ -11,7 +11,7 @@ public class Ex4Solved implements Exercise4{
         Ex4Solved test = new Ex4Solved();
         double[] triangularMatrixA = {2,5,6,7,8,7};
         double[] triangularMatrixB = {2,5,6,7,8,7};
-        printMatrix(test.summation(triangularMatrixA, triangularMatrixB, new Calc()));
+        Calc.printMatrix(test.summation(triangularMatrixA, triangularMatrixB, new Calc()));
     }
 
     @Override
@@ -31,16 +31,6 @@ public class Ex4Solved implements Exercise4{
             }
         }
         return result;
-    }
-
-    public static void printMatrix(double[][] matrix){
-        for (int i = 0; i < matrix.length; i++) {
-            String row = "";
-            for (int j = 0; j < matrix[0].length; j++) {
-                row += matrix[i][j] + " ";
-            }
-            System.out.println(row);
-        }
     }
 
     private int getDimensionOfTriangularMatrix(double[] matrix){
