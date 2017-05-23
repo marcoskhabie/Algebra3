@@ -8,7 +8,18 @@ public class Solution implements TP4 {
 
     @Override
     public double[] exercise1(double[][] coefficients, double[] independentTerms) {
-        return new double[0];
+        double[] result = new double[coefficients.length];
+
+        for (int i = coefficients.length -1; i >= 0 ; i--) {
+            result[i] = independentTerms[i];
+            double summation = 0;
+            for (int j = i+1; j < coefficients.length; j++) {
+                summation += coefficients[i][j] * result[j];
+            }
+            result[i] -= summation;
+        }
+        return result;
+
     }
 
     @Override
