@@ -1,3 +1,4 @@
+package practica7;
 public interface Calculator{
 	
 	// The equivalent for sum(5,10) is 5+10=15;

@@ -1,3 +1,4 @@
+package practica7;
 public interface TP4{
 
 	double[] exercise1(double[][] coefficients, double[] independentTerms);
