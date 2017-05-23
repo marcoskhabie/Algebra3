@@ -34,17 +34,6 @@ public class Ex4Solved implements Exercise4{
     }
 
     private int getDimensionOfTriangularMatrix(double[] matrix){
-        int n = 0;
-        int j = 0;
-        for (int i = 0; i < matrix.length; i++) {
-            if(n == j){
-                j = 0;
-                n++;
-            }
-            else{
-                j++;
-            }
-        }
-        return n;
+        return (int)(-1+Math.sqrt(1+8*matrix.length))/2;
     }
 }
