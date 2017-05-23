@@ -33,5 +33,15 @@ public class Calc implements Calculator {
             }
             System.out.println(row);
         }
+
+    }
+    public static void printVector(double[] vector){
+        String result="";
+        for (int i = 0; i <vector.length ; i++) {
+
+        result+= vector[i]+"   ";
+
+        }
+        System.out.println(result);
     }
 }

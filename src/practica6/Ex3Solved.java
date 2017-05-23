@@ -19,8 +19,14 @@ public class Ex3Solved  implements Exercise3{
                                 {0,8,9},
                                 {0,0,10}};
 
+        double[] VectorA = {10,9,11};
+
+
+
         Ex3Solved solver = new Ex3Solved();
         Calc.printMatrix(solver.exerciseAIII(matrixA,matrixB,new Calc()));
+        Calc.printMatrix(solver.exerciseAII(matrixA,matrixB,new Calc()));
+        Calc.printVector(solver.exerciseAI(matrixA,VectorA,new Calc()));
     }
 
     @Override
@@ -29,7 +35,7 @@ public class Ex3Solved  implements Exercise3{
         double[] result= new double[matrixA.length];
       while (i<matrixA.length){
           for (int j = i; j <matrixA.length ; j++) {
-              result[i]= calculator.sum(result[i],calculator.multiplication(matrixA[j][i],vectorX[j]));
+              result[i]= calculator.sum(result[i],calculator.multiplication(matrixA[i][j],vectorX[j]));
           }
           i++;
       }
@@ -38,11 +44,17 @@ public class Ex3Solved  implements Exercise3{
 
     @Override
     public double[][] exerciseAII(double[][] matrixA, double[][] matrixB, Calculator calculator) {
+        if(matrixA[0].length != matrixB.length){
+            throw new RuntimeException("Dimension error in product of matrix");
+        }
         int i= 0;
         double[][] result= new double[matrixA.length][matrixA.length];
         while (i<matrixA.length){
-            for (int j = i; j <matrixA.length ; j++) {
-                result[i][j]= calculator.sum(matrixA[i][j],matrixB[i][j]);
+            for (int j = 0; j <matrixA.length ; j++) {
+                if (j>=i) {
+                    result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
+                }
+                else result[i][j]=0;
             }
             i++;
         }
