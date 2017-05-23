@@ -2,6 +2,7 @@ package practica7;
 
 /**
  * @author Agustin Bettati
+ * @author Marcos Khabie
  * @version 1.0
  */
 public class Test {
