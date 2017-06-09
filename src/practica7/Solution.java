@@ -7,6 +7,12 @@ package practica7;
  */
 public class Solution implements TP4 {
 
+    /**
+     * solves a system of linear equations of upper matrix with 1s in the diagonal.
+     * @param coefficients
+     * @param independentTerms
+     * @return
+     */
     @Override
     public double[] exercise1(double[][] coefficients, double[] independentTerms) {
         double[] result = new double[coefficients.length];
@@ -23,6 +29,12 @@ public class Solution implements TP4 {
 
     }
 
+    /**
+     * Solves a system of linear equation of a lower matrix
+     * @param coefficients
+     * @param independentTerms
+     * @return
+     */
     @Override
     public double[] exercise2(double[][] coefficients, double[] independentTerms) {
         double[] result = new double[coefficients.length];
@@ -39,6 +51,13 @@ public class Solution implements TP4 {
         }
         return result;
     }
+
+    /**
+     * Gauss algorithm without changing position of rows.
+     * @param coefficients
+     * @param independentTerms
+     * @return
+     */
     @Override
     public double[] exercise5WithoutPivoteo(double[][] coefficients, double[] independentTerms) {
         for (int i = 0; i <coefficients.length ; i++) {
@@ -60,7 +79,12 @@ public class Solution implements TP4 {
         return exercise1(coefficients,independentTerms);
     }
 
-
+    /**
+     * Gauss algorithm changing position of rows to obtain a more precise result.
+     * @param coefficients
+     * @param independentTerms
+     * @return
+     */
     @Override
     public double[] exercise5PartialPivoteo(double[][] coefficients, double[] independentTerms) {
 
@@ -103,6 +127,13 @@ public class Solution implements TP4 {
         return exercise1(coefficients,independentTerms);
     }
 
+    /**
+     * Gauss algorithm optimized for a Hessenberg matrix.
+     * @param coefficients
+     * @param independentTerms
+     * @param calculator
+     * @return
+     */
     @Override
     public double[] exercise6(double[][] coefficients, double[] independentTerms, Calculator calculator) {
         for (int i = 0; i <coefficients.length ; i++) {
@@ -126,6 +157,13 @@ public class Solution implements TP4 {
         return exercise1(coefficients,independentTerms);
     }
 
+    /**
+     * Gauss algorithm optimized for a tri-diagonal and symmetric matrix.
+     * @param coefficients
+     * @param independentTerms
+     * @param calculator
+     * @return
+     */
     @Override
     public double[] exercise7(double[][] coefficients, double[] independentTerms, Calculator calculator) {
         for (int i = 0; i <coefficients.length ; i++) {
@@ -149,6 +187,11 @@ public class Solution implements TP4 {
         return exercise1(coefficients,independentTerms);
     }
 
+    /**
+     * Gauss-Jordan algorithm to find the inverse of a matrix
+     * @param coefficients
+     * @return
+     */
     @Override
     public double[][] exercise8(double[][] coefficients) {
         double[][] expandedMatrix = new double[coefficients.length][coefficients.length * 2];
@@ -199,12 +242,23 @@ public class Solution implements TP4 {
 
     }
 
+    /**
+     * Solves a system of linear equations implementing LU factorization.
+     * @param coefficients
+     * @param independentTerms
+     * @return
+     */
     @Override
     public double[] exercise9(double[][] coefficients, double[] independentTerms) {
         double[][] lower = new double[coefficients.length][coefficients.length];
         double[][] upper = new double[coefficients.length][coefficients.length];
 
-        // falta agregar diagonal de 0 en la lower/upper
+        //fill diagonal of 1s in lower matrix
+        for (int i = 0; i < lower.length; i++) {
+            lower[i][i] = 1;
+        }
+
+        //Algoritmo Doolitle
         for (int k = 0; k < coefficients.length; k++) {
             for (int j = k; j < coefficients.length; j++) {
                 upper[k][j] = coefficients[k][j];
@@ -227,8 +281,29 @@ public class Solution implements TP4 {
             }
         }
 
-        int a;
-        return null;
+        // tengo LU x = b
+        //si U x = z, primero busco L z = b
+        double[] z = new double[coefficients.length];
+        z = exercise2(lower,independentTerms);
+
+        //ahora que tengo z, despejo x apartir de U x = z
+
+        return upperMatrixSolver(upper, z);
+    }
+
+    private double[] upperMatrixSolver(double[][] coefficients, double[] independentTerms) {
+        double[] result = new double[coefficients.length];
+
+        for (int i = coefficients.length -1; i >= 0 ; i--) {
+            result[i] = independentTerms[i];
+            double summation = 0;
+            for (int j = i+1; j < coefficients.length; j++) {
+                summation += coefficients[i][j] * result[j];
+            }
+            result[i] -= summation;
+            result[i] /= coefficients[i][i];
+        }
+        return result;
     }
 
 }
