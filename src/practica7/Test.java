@@ -15,6 +15,6 @@ public class Test {
         double[] independentTerms = {2,6,5};
 
         double[] result = tester.exercise9(coefficientes, independentTerms);
-        int a =9;
+
     }
 }

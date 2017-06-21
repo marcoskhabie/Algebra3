@@ -25,6 +25,7 @@ public class Calc implements Calculator {
     public double division(double a, double b) {
         return a / b;
     }
+
     public static void printMatrix(double[][] matrix){
         for (int i = 0; i < matrix.length; i++) {
             String row = "";

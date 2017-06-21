@@ -71,6 +71,7 @@ public class Solution implements TP4 {
 
                 double valueToMultiply = coefficients[k][i];
                 independentTerms[k] = independentTerms[k] - (independentTerms[i] * valueToMultiply);
+
                 for (int j = i; j < coefficients.length; j++) {
                     coefficients[k][j] = coefficients[k][j] - (coefficients[i][j] * valueToMultiply);
                 }
@@ -283,8 +284,7 @@ public class Solution implements TP4 {
 
         // tengo LU x = b
         //si U x = z, primero busco L z = b
-        double[] z = new double[coefficients.length];
-        z = exercise2(lower,independentTerms);
+        double[] z = exercise2(lower,independentTerms);
 
         //ahora que tengo z, despejo x apartir de U x = z
 
